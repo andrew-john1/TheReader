@@ -46,22 +46,26 @@ public class OrientationSensor {
 	  @Path("/create")
 	  @Produces("application/json")
 	  public String addOrientation(
-			  @FormParam("id") int id,
-		      @FormParam("name") String name,
-		      @FormParam("age") int age) throws ClassNotFoundException, SQLException {
+		  @FormParam("id") int id,
+	      @FormParam("name") String name,
+	      @FormParam("age") int age) throws ClassNotFoundException, SQLException {
 		  
 		  String result = orientationService.createOrientation(id, name, age);
 		  
 		  return result;
 	          
 	  }
-//	  
-//	  @PUT
-//	  @Path("/update")
-//	  @Produces("application/json")
-//	  public Orientation updateOrientation(Orientation orientation) {
-//		  return orientationService.updateOrientation(orientation);
-//	  }
+	  
+	  @PUT
+	  @Path("/update")
+	  @Produces("application/json")
+	  public String updateOrientation( 
+			  @FormParam("id") int id,
+		      @FormParam("name") String name,
+		      @FormParam("age") int age) {
+		
+		  return orientationService.updateOrientation(orientation);
+	  }
 //	  
 //	  @DELETE
 //	  @Path("/delete/{id}")

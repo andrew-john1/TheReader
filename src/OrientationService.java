@@ -100,11 +100,7 @@ public class OrientationService {
 	  }
 	
 	public String createOrientation(int id, String name, int age) throws SQLException, ClassNotFoundException {
-		
-		System.out.println(id);
-		System.out.println(name);
-		System.out.println(age);
-		
+				
 		// Register JDBC driver
 	    Class.forName("com.mysql.jdbc.Driver");
 			 
@@ -114,6 +110,26 @@ public class OrientationService {
           // Execute SQL query
           Statement stmt = conn.createStatement();
           String query = "INSERT INTO students VALUES (" + id + ", '" + name + "', " + age + ")" ;
+          stmt.executeUpdate(query);          
+          
+          stmt.close();
+          conn.close();
+		
+		return "New Orientation added";
+		
+	}
+	
+	public String updateOrientation(int id, String name, int age) throws SQLException, ClassNotFoundException {
+		
+		// Register JDBC driver
+	    Class.forName("com.mysql.jdbc.Driver");
+			 
+	    // Open a connection
+	    Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+
+          // Execute SQL query
+          Statement stmt = conn.createStatement();
+          String query = "UPATE students SET name = '" + name + "', age = " + age + " WHERE id = " + id ;
           stmt.executeUpdate(query);          
           
           stmt.close();
