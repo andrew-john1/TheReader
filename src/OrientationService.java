@@ -126,10 +126,14 @@ public class OrientationService {
 			 
 	    // Open a connection
 	    Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+	    
+	    System.out.println(id);
+	    System.out.println(name);
+	    System.out.println(age);
 
           // Execute SQL query
           Statement stmt = conn.createStatement();
-          String query = "UPATE students SET name = '" + name + "', age = " + age + " WHERE id = " + id ;
+          String query = "UPDATE students SET name = '" + name + "', age = " + age + " WHERE id = " + id ;
           stmt.executeUpdate(query);          
           
           stmt.close();

@@ -66,6 +66,13 @@ public class OrientationSensor {
 		
 		  return orientationService.updateOrientation(id, name, age);
 	  }
+	  
+	  @DELETE
+	  @Path("/delete/{sensorId}")
+	  @Produces("application/json")
+	  public String deleteOrientation(@PathParam("sensorId")int id) {
+		  return "test";
+	  }
 //	  
 //	  @DELETE
 //	  @Path("/delete/{id}")
