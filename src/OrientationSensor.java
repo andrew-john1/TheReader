@@ -70,8 +70,8 @@ public class OrientationSensor {
 	  @DELETE
 	  @Path("/delete/{sensorId}")
 	  @Produces("application/json")
-	  public String deleteOrientation(@PathParam("sensorId")int id) {
-		  return "test";
+	  public String deleteOrientation(@PathParam("sensorId")int id) throws ClassNotFoundException, SQLException {
+		  return orientationService.deleteOrientation(id);
 	  }
 //	  
 //	  @DELETE
