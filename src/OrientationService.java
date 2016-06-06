@@ -135,7 +135,7 @@ public class OrientationService {
           stmt.close();
           conn.close();
 		
-		return "New Orientation added";
+		return "Orientation updated";
 		
 	}
 

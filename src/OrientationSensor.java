@@ -62,9 +62,9 @@ public class OrientationSensor {
 	  public String updateOrientation( 
 			  @FormParam("id") int id,
 		      @FormParam("name") String name,
-		      @FormParam("age") int age) {
+		      @FormParam("age") int age) throws ClassNotFoundException, SQLException {
 		
-		  return orientationService.updateOrientation(orientation);
+		  return orientationService.updateOrientation(id, name, age);
 	  }
 //	  
 //	  @DELETE
