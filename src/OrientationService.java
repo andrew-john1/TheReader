@@ -127,10 +127,6 @@ public class OrientationService {
 	    // Open a connection
 	    Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
 	    
-	    System.out.println(id);
-	    System.out.println(name);
-	    System.out.println(age);
-
           // Execute SQL query
           Statement stmt = conn.createStatement();
           String query = "UPDATE students SET name = '" + name + "', age = " + age + " WHERE id = " + id ;
@@ -140,8 +136,25 @@ public class OrientationService {
           conn.close();
 		
 		return "Orientation updated";
-		
 	}
 
+	public String deleteOrientation(int id) throws SQLException, ClassNotFoundException {
+		
+		// Register JDBC driver
+	    Class.forName("com.mysql.jdbc.Driver");
+			 
+	    // Open a connection
+	    Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+	    
+          // Execute SQL query
+          Statement stmt = conn.createStatement();
+          String query = "DELETE FROM students WHERE  id = " + id ;
+          stmt.executeUpdate(query);          
+          
+          stmt.close();
+          conn.close();
+		
+		return "Orientation updated";
+	}
 	
 }
